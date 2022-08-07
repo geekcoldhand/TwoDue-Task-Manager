@@ -29,72 +29,71 @@
     <header class="jumbotron text-center">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
+      <p id="currentDay" class="lead">text odf the day</p>
     </header>
     <!-- Timeblocks go here -->
     <div class="time-block container flex-column justify-content-center">
       <!-- (9am) -->
       <div class="row">
         <div class="hour col-sm-2">9am</div>
-        <div class="textarea col-9" id="9hr">
+        <div class="textarea col-9" id="9">
           One of three columns the TASK TODO
         </div>
-        <div class="saveBtn col-sm-1" id="9Btn">Save to local Storage Btn</div>
+        <button class="saveBtn col-sm-1" id="9Btn">Save</button>
       </div>
       <!-- (10am) -->
       <div class="row">
         <div class="hour col-sm-2">10am</div>
-        <div class="col-9" id="10hr">One of three columns the TASK TODO</div>
-        <div class="saveBtn col-1" id="10Btn">Save to local Storage Btn</div>
+        <div class="col-9" id="10">One of three columns the TASK TODO</div>
+        <button class="saveBtn col-1" id="10Btn">Save</button>
+
+        <!-- <div class="saveBtn col-1" id="10Btn">Save</div> -->
       </div>
       <!-- (11am) -->
       <div class="row">
         <div class="hour col-sm-2">11am</div>
-        <div class="col-9" id="11hr">One of three columns the TASK TODO</div>
-        <div class="saveBtn col-1" id="11Btn">Save to local Storage Btn</div>
+        <div class="col-9" id="11">One of three columns the TASK TODO</div>
+        <button class="saveBtn col-1" id="11Btn">Save</button>
       </div>
       <!-- (12pm) -->
       <div class="row">
         <div class="hour col-sm-2">12pm</div>
-        <div class="col-9" id="12hr">One of three columns the TASK TODO</div>
-        <div class="saveBtn col-1" id="12Btn">Save to local Storage Btn</div>
+        <div class="col-9" id="12">One of three columns the TASK TODO</div>
+        <button class="saveBtn col-1" id="12Btn">Save</button>
       </div>
       <!-- (1pm) -->
       <div class="row">
         <div class="hour col-sm-2">1pm</div>
-        <div class="col-9" id="1hr">One of three columns the TASK TODO</div>
-        <div class="saveBtn col-1" id="1Btn">Save to local Storage Btn</div>
+        <div class="col-9" id="13">One of three columns the TASK TODO</div>
+        <button class="saveBtn col-1" id="1Btn">Save</button>
       </div>
       <!-- (2pm) -->
       <div class="row">
         <div class="hour col-sm-2">2pm</div>
-        <div class="col-9" id="2hr">One of three columns the TASK TODO</div>
-        <div class="saveBtn col-1" id="2Btn">Save to local Storage Btn</div>
+        <div class="col-9" id="14">One of three columns the TASK TODO</div>
+        <button class="saveBtn col-1" id="2Btn">Save</button>
       </div>
       <!-- (3pm) -->
       <div class="row">
         <div class="hour col-sm-2">3pm</div>
-        <div class="col-9" id="3hr">One of three columns the TASK TODO</div>
-        <div class="saveBtn col-1" id="3Btn">Save to local Storage Btn</div>
+        <div class="col-9" id="15">One of three columns the TASK TODO</div>
+        <button class="saveBtn col-1" id="3Btn">Save</button>
       </div>
       <!-- (4pm) -->
       <div class="row">
         <div class="hour col-sm-2">4pm</div>
-        <div class="col-9" id="4hr">One of three columns the TASK TODO</div>
-        <div class="saveBtn col-1" id="4Btn">Save to local Storage Btn</div>
+        <div class="col-9" id="16">One of three columns the TASK TODO</div>
+        <button class="saveBtn col-1" id="4Btn">Save</button>
       </div>
       <!-- (5pm) -->
       <div class="row">
         <div class="hour col-sm-2">5pm</div>
-        <div class="col-9" id="5hr">One of three columns the TASK TODO</div>
-        <div class="saveBtn col-1" id="5Btn">Save to local Storage Btn</div>
+        <div class="col-9" id="17">One of three columns the TASK TODO</div>
+        <button class="saveBtn col-1" id="5Btn">Save</button>
       </div>
     </div>
     <!-- Dayjs -->
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-    <script>
-      dayjs().format();
-    </script>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
