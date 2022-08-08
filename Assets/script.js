@@ -1,24 +1,24 @@
 // the ask elements for each of the hours we will add task inside these
-var nineTask = $("#9");
-var tenTask = $("#10");
-var elevTask = $("#11");
-var twelTask = $("#12");
-var oneTask = $("#13");
-var twoTask = $("#14");
-var teeTask = $("#15");
-var fourTask = $("#16");
-var fiveTask = $("#17");
-var currDay = $("#currentDay");
-//the save buttons to their respective hour that will call the local storage save functions
-var nineBtn = $("#9Btn");
-var tenBtn = $("#10Btn");
-var elevBtn = $("#11Btn");
-var twelBtn = $("#12Btn");
-var oneBtn = $("#1Btn");
-var twoBtn = $("#2Btn");
-var threeBtn = $("#3Btn");
-var fourBtn = $("#4Btn");
-var fiveBtn = $("#5Btn");
+const nineTask = $("#9");
+const tenTask = $("#10");
+const elevTask = $("#11");
+const twelTask = $("#12");
+const oneTask = $("#13");
+const twoTask = $("#14");
+const threeTask = $("#15");
+const fourTask = $("#16");
+const fiveTask = $("#17");
+const currDay = $("#currentDay");
+//buttons will call saveTask()
+const nineBtn = $("#9Btn");
+const tenBtn = $("#10Btn");
+const elevBtn = $("#11Btn");
+const twelBtn = $("#12Btn");
+const oneBtn = $("#1Btn");
+const twoBtn = $("#2Btn");
+const threeBtn = $("#3Btn");
+const fourBtn = $("#4Btn");
+const fiveBtn = $("#5Btn");
 //one click call the functions btn
 nineBtn.click(saveTask);
 tenBtn.click(saveTask);
@@ -29,61 +29,59 @@ twoBtn.click(saveTask);
 threeBtn.click(saveTask);
 fourBtn.click(saveTask);
 fiveBtn.click(saveTask);
-
-var numKey = [
-  [nineBtn, 9],
-  [tenBtn, 10],
-  [elevBtn, 11],
-  [twelBtn, 12],
-  [oneBtn, 13],
-  [twoBtn, 14],
-  [threeBtn, 3],
-  [fourBtn, 4],
-  [fiveBtn, 5],
+// a key to find the task associated in the matrix
+const numKey = [
+  [nineTask, 9],
+  [tenTask, 10],
+  [elevTask, 11],
+  [twelTask, 12],
+  [oneTask, 13],
+  [twoTask, 14],
+  [threeTask, 15],
+  [fourTask, 16],
+  [fiveTask, 17],
 ];
-
-//var date = new Date();
-var day = dayjs();
-var weekDay = day.format("dddd");
-var monthDay = day.month();
-var year = day.year();
-var hour = day.hour();
-var hour = day.format("H");
+//set the page date and color time cells
+// create a date object and set the current day text content
+const day = dayjs();
+let weekDay = day.format("dddd");
+let monthDay = day.month();
+let year = day.year();
+let hour = day.hour();
+//var hour = day.format("H");
 currDay.text(weekDay + ", " + monthDay + " " + year);
-let hourArray = [
-  nineTask,
-  tenTask,
-  elevTask,
-  twelTask,
-  oneTask,
-  twoTask,
-  teeTask,
-  fourTask,
-  fiveTask,
-];
 checkColor();
 
+// saves the respective task to the right place in local storage
 function saveTask(event) {
-  console.log("saved");
-
-  let passed = event.target.attr("id");
-  let numCalled = passed.charAt(0);
-  let tasktoSave = $("#" + numCalled).text();
-
-  console.log("task to save " + tasktoSave);
-  for (var i = 0; i < numKey.length; i++) {}
+  //the number associated with the button that called the click
+  let passed = event.target.getAttribute("id");
+  let numCalled = passed.split("B", 1)[0];
+  let taskToSave;
+  //loop the
+  for (let i = 0; i < numKey.length; i++) {
+    if (numKey[i][1] === parseInt(numCalled)) {
+      taskToSave = numKey[i][0].val();
+    }
+  }
+  // this will override the last var at the hour its saved under
+  window.localStorage.setItem(
+    "Task of hour " + numCalled,
+    JSON.stringify(taskToSave)
+  );
 }
-var clock;
+
+let clock;
 function checkColor() {
   clock = setInterval(function () {
-    for (var i = 0; i < hourArray.length; i++) {
-      if (hour < parseInt(hourArray[i].attr("id"))) {
-        hourArray[i].addClass("future");
+    for (let i = 0; i < numKey.length; i++) {
+      if (hour < parseInt(numKey[i][0].attr("id"))) {
+        numKey[i][0].addClass("future");
       }
-      if (hour > parseInt(hourArray[i].attr("id"))) {
-        hourArray[i].addClass("past");
+      if (hour > parseInt(numKey[i][0].attr("id"))) {
+        numKey[i][0].addClass("past");
       } else {
-        hourArray[i].addClass("present");
+        numKey[i][0].addClass("present");
       }
     }
   }, 1000); // check every 1 seconds
